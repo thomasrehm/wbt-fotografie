@@ -1,0 +1,32 @@
+/* Buttons */
+
+.btn {
+	border-radius: 0px;
+	background-image: none;
+	border: 0px;
+	text-shadow: none;
+	text-transform: uppercase;
+	font-family: 'PT Sans', sans-serif;
+	color: #FFF;
+}
+
+.btn-default {
+	background-color: #95A5A6;
+}
+.btn-default:hover, .btn-default:active, .btn-default:focus {
+	background-color: #BDC3C7;
+	color: #FFF;
+}
+
+.btn-primary {	 	
+  	background-color: #2C3E50; 	
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+	background-color: #34495E;
+}
+
+.btn-link, .btn-link:hover, .btn-link:active, .btn-link:focus {
+	color: #2C3E50;
+	border: 1px solid #2C3E50;
+	text-decoration: none;
+}

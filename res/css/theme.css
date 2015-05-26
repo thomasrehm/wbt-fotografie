@@ -10,6 +10,20 @@
 	color: #FFF;
 }
 
+/* Footer */
+
+.footer {
+	margin: -22px;
+	padding: 0px;
+}
+
+.footer a.walkingButton {
+	padding: 22px;
+	font-size: 22px;
+}
+
+
+
 
 /* Container Styles */
 
