@@ -109,7 +109,7 @@ App.ModuleManager = {
      * A module which gets extended must contain these properties.
      *
      * It's like an module interface.
-     * 
+     *
      * @type {Array}
      */
     requiredModuleProperties : ["wrapperFunction","wrapperClass"],
@@ -124,7 +124,7 @@ App.ModuleManager = {
      * Adds a single module to the runtime environment to be used as a wrapper.
      *
      * Checks if the given module implements the requiredModuleProperties and adds it to the modules object.
-     * 
+     *
      * @param  {String} name   The modules name. It's used to identify the modul in the runtime environment.
      * @param  {Object} module This is the module objects that contains the properties given in requiredModulePrperties
      * @return {null}
@@ -251,7 +251,7 @@ App.SectionManager = {
 
     firstRun : true,
 
-   
+
     /**
      * initializes the Section manager and sets up the main article
      */
@@ -394,7 +394,7 @@ App.SectionManager = {
      * @param  {String} articleName This is the ID of every article. The ID is given by the navigation link manager
      */
     showArticle : function(articleName){
-        // check if the article id exists        
+        // check if the article id exists
         if(!this.articles.hasOwnProperty(articleName)){
             throw new Error("The article \""+articleName+"\" does not exist!");
         }
@@ -408,7 +408,7 @@ App.SectionManager = {
         var arg, canProceed = true;
 
         if(!this.firstRun){
-            
+
             if(this.currentSection === parentSection.id){
                 // validate if we have any validator modules in this article
                 for(var i = 0, modules = this.articles[this.currentArticle].modules, validatorResult = false; i < modules.length; i++){
@@ -468,7 +468,7 @@ App.SectionManager = {
                     App.Event.register("onSubNavigationBuild", function(arg){App.NavigationManager.enableSubLink(arg);})
                 }
             }
-            
+
         }
 
         // if the next section is not the current section:
@@ -528,7 +528,7 @@ App.SectionManager = {
      * @param  {Number} index the index
      */
     loadArticleByIndex : function(index){
-        
+
         // temporary counter to compare the indexes
         var indexCounter = 0;
 
@@ -716,7 +716,7 @@ App.NavigationManager = {
         var HTMLcontent = "<div class=\"container-fluid\">";
 
         // add the navbar header
-        HTMLcontent += '<div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#'+navBarID+'"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>'
+        HTMLcontent += '<div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#'+navBarID+'"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="index.html">WBT Fotografie</a></div>'
 
         // first part of the collapsable navbar
         HTMLcontent += '<div class="collapse navbar-collapse" id="'+navBarID+'"><ul class="nav navbar-nav">';
@@ -801,7 +801,7 @@ App.NavigationManager = {
     linkController : function(){
         // bind the click event
         $(".nav .dropdown-menu > li > a").click(function(e){
-            
+
             var t = $(this);
 
             var parentLI = t.parent("li");
@@ -838,7 +838,7 @@ App.NavigationManager = {
      */
     activeSubLink : function(linkTarget){
         this.getSubNavigationElement(linkTarget).addClass("active");
-        
+
     },
 
     /**
@@ -847,7 +847,7 @@ App.NavigationManager = {
      */
     inactiveSubLink : function(linkTarget){
         this.getSubNavigationElement(linkTarget).removeClass("active");
-        
+
     },
 
     /**
@@ -961,7 +961,7 @@ App.Error = {
      */
     registerErrorEventHandler : function(){
         window.onerror = function(msg, url, line, col, error) {
-           // Note that col & error are new to the HTML 5 spec and may not be 
+           // Note that col & error are new to the HTML 5 spec and may not be
            // supported in every browser.  It worked for me in Chrome.
            var extra = !col ? '' : '\ncolumn: ' + col;
            extra += !error ? '' : '\nerror: ' + error;
@@ -970,7 +970,7 @@ App.Error = {
            App.Error.log(msg + "\n\nurl: " + url + "\nline: " + line + extra);
 
            var suppressErrorAlert = true;
-           // If you return true, then error alerts (like in older versions of 
+           // If you return true, then error alerts (like in older versions of
            // Internet Explorer) will be suppressed.
            return suppressErrorAlert;
         };

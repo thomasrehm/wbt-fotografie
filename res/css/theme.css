@@ -1,58 +1,52 @@
 @import url(http://fonts.googleapis.com/css?family=Lora);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
-
 /* Sections */
 
 #header {
-	height: 85px;
-	padding: 22px;
-	text-align: right;
-	color: #FFF;
+    height: 85px;
+    padding: 22px;
+    text-align: right;
+    color: #FFF;
 }
-
 /* Footer */
 
 .footer {
-	margin: -22px;
-	padding: 0px;
+    margin: -22px;
+    padding: 0px;
 }
-
 .footer a.walkingButton {
-	padding: 22px;
-	font-size: 22px;
+    padding: 22px;
+    font-size: 22px;
 }
-
-
-
-
 /* Container Styles */
-
 body {
-	background: url(../images/background.jpg) no-repeat center;
-	background-size: cover;
+	background-color: transparent !important;
 }
 
+html {
+
+    background: url(../images/background_small.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 section, aside {
-	background: #FFF;
-	padding: 22px;
-	-webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.28);
-	-moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.28);
-	box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.28);
+    background: #FFF;
+    padding: 22px;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.28);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.28);
+    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.28);
 }
-
-
-
 /* Text Styles */
 
 h1, h2 {
-	font-family: 'PT Sans', sans-serif;
+    font-family: 'PT Sans', sans-serif;
 }
-
 h1 {
-	text-transform: uppercase;
+    text-transform: uppercase;
 }
-
 p {
     font-family: 'Lora', serif;
-    font-size: 20px;
+    font-size: 1.2em;
 }

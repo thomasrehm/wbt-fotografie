@@ -18,8 +18,8 @@
 	color: #FFF;
 }
 
-.btn-primary {	 	
-  	background-color: #2C3E50; 	
+.btn-primary {
+  	background-color: #2C3E50;
 }
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
 	background-color: #34495E;
@@ -29,4 +29,8 @@
 	color: #2C3E50;
 	border: 1px solid #2C3E50;
 	text-decoration: none;
+}
+
+.row {
+	background-color: transparent !important;
 }
