@@ -57,6 +57,7 @@
                             <p>
                                 Hier wollen wir dir erklären, welche Eigenschaften die verschiedenen Kameratypen besitzen, für welche Zwecke sie genutzt werden können und welche Vor- und Nachteile sie haben.
                             </p>
+                            <div id="bethecamera-loader"></div>
                         </div>
 
                     </article>
@@ -188,6 +189,13 @@
             -->
         </div>
     </div>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#bethecamera-loader").load("bethecamera_ajax.html");
+    });
+
+
+    </script>
 
 </body>
 
