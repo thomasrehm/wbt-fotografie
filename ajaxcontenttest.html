@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Styles -->
+	<link rel="stylesheet" href="res/js/wbtframework/src/css/wbtStyle.css" />
+	<link rel="stylesheet" href="res/js/wbtframework/src/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="res/js/wbtframework/src/css/bootstrap-theme.min.css" />
+	<!-- JS -->
+	<script src="res/js/wbtframework/src/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/localStorage.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/modal.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/framework.js" type="text/javascript" charset="utf-8"></script>
+	<!-- JS-Language -->
+	<!-- <script src="src/lang/DE_de.js" type="text/javascript" charset="utf-8" defer></script> -->
+	<script src="res/js/wbtframework/_demo/src/lang/EN_en.js" type="text/javascript" charset="utf-8" defer></script>
+	<!-- JS-Module -->
+	<script src="res/js/wbtframework/src/js/accordion.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/video.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/audio.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/value.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/dragDrop.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/gallery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/_demo/src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>
+	<!-- custom -->
+	<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
+	<link rel="stylesheet" href="res/css/bootstrap-overrides.css" />
+	<link rel="stylesheet" href="res/css/theme.css" />
+	<script type="text/javascript">
+		var sectionHead = false,
+			sectionEnd = '</section>',
+			articleHead = false, articleEnd = '</div></article>',
+			content, page;
+		function getContentFromSpreadsheat() {
+			$.getJSON("https://spreadsheets.google.com/feeds/list/1U7imA8NCahaqeIT3jlz-3J-mTuRZyrYs1rUlTZsnO_M/od6/public/values?alt=json-in-script&callback=?", function(data) {
+				$.each(data.feed.entry, function(i, entry) {
+					if (entry.gsx$sectionheadline.$t) {
+						if (sectionHead != false) {
+							page += sectionEnd;
+							page += '<br>';
+						}
+						sectionHead = '<section><h1 id="' + entry.gsx$sectionid.$t + '">' + entry.gsx$sectionheadline.$t + '</h1>';
+						page += sectionHead;
+					}
+					if (entry.gsx$articleheadline.$t) {
+						if (articleHead != false) {
+							page += articleEnd;
+						}
+						articleHead = '<article><div><h2 id="' + entry.gsx$articleid.$t + '">' + entry.gsx$articleheadline.$t + '</h2>';
+						page += articleHead;
+					}
+					if (entry.gsx$content.$t) {
+						content = '<p>' + entry.gsx$content.$t + '</p>';
+						page += content;
+					}
+				});
+				$('#content').append(page);
+			});
+		}
+		$( window ).ready(getContentFromSpreadsheat());
+        App.init();
+	</script>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<nav class="mainNavigation"></nav>
+		<div class="row">
+			<div id="header" class="col-md-10">
+				<h1>WBT Fotografie</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-push-2" id="content">
+				<section>
+					<h1>Technologie</h1>
+					<article>
+						<div>
+							<h2>ISO/Sensor</h2>
+							<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae
+								est. Mauris placerat eleifend leo.</p>
+							<ul>
+								<li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
+								<li>Aliquam tincidunt mauris eu risus.</li>
+								<li>Vestibulum auctor dapibus neque.</li>
+							</ul>
+						</div>
+					</article>
+				</section>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#bethecamera-loader").load("bethecamera_ajax.html");
+		});
+		$(document).ready(function() {
+
+		});
+	</script>
+</body>
+
+</html>
