@@ -1,0 +1,19 @@
+#bethecamera-loader h2 {
+	font-size: 16px;
+}
+
+#scene {
+	display:none;
+}
+
+#bethecamera-loader .controlPanel output {
+	text-align: right;
+	margin-top: -33px;
+	margin-bottom: 8px;
+	color: orange;
+	font-weight: bold;
+}
+
+#bethecamera-loader #topContainer select {
+	border: 1px solid #DDD;
+}

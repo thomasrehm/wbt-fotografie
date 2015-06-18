@@ -6,6 +6,7 @@
 	<script src="res/js/bethecamera/external/require-jquery.js"></script>
 	<script src="res/js/bethecamera/external/jquery-ui/js/jquery-ui-1.9.0.custom.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="res/js/bethecamera/external/jquery-ui/css/ui-darkness/jquery-ui-1.9.0.custom.min.css" />
+	
 
 	<script>
 		require.config({
@@ -13,6 +14,7 @@
 			urlArgs: "bust=$GIT_COMMIT",
 		});
 		require(['src/main'], function () {});
+
 	</script>
 
 <!-- Chrome frame install -->
@@ -20,28 +22,28 @@
    src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">
 </script>
 </head>
-<body id=simulator>
-	<div id=topContainer>
+<body id="simulator">
+	<div id="topContainer">
 		<h2>Camera: <select id="cameraSelector"></select> &nbsp; Scene: <select id="sceneSelector"></select></h2>
 	</div>
-	<div id=simulationContainer>
-		<div id=cameraContainer>
-			<div id=leftColumn>
+	<div id="simulationContainer">
+		<div id="cameraContainer" class="row">
+			<div id="leftColumn" class="col-sm-3">
 				<div class="controlPanel">
-					<table>
+					<table class="table table-condensed">
 						<tr>
-							<td><label>Focus</label></td>
+							<td><label>Fokus</label></td>
 							<td>
 								<label data-focus="fore" title="Foreground">
-									<input name="focus" type="radio" value="fore" />Foreground
+									<input name="focus" type="radio" class="btn btn-default" value="fore" />Vordergrund
 								</label>
 								<label data-focus="back" title="Background">
-									<input name="focus" type="radio" value="back" />Background
+									<input name="focus" type="radio" class="btn btn-default" value="back" />Hintergrund
 								</label>
 							</td>
 						</tr>
 						<tr>
-							<td><label>Mode</label></td>
+							<td><label>Modus</label></td>
 							<td>
 								<form>
 									<label data-mode="A" title="Automatic">
@@ -60,7 +62,7 @@
 							</td>
 						</tr>
 					</table>
-					<table>
+					<table class="table table-condensed">
 						<tr>
 							<td width="50%">
 								<label for="ISOAmount">ISO</label>
@@ -70,21 +72,21 @@
 						</tr>
 						<tr>
 							<td>
-								<label for="apertureAmount">Aperture</label>
+								<label for="apertureAmount">Blende</label>
 								<output type="text" id="apertureAmount"></output>
 								<div id="apertureSlider" class=slider></div>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<label for="shutterAmount">Shutter Speed</label>
+								<label for="shutterAmount">Verschlusszeit</label>
 								<output type="text" id="shutterAmount"></output>
 								<div id="shutterSlider" class=slider></div>
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<label for="exposureAmount">EV</label>
+								<label for="exposureAmount">Belichtung (EV)</label>
 								<output type="text" id="exposureAmount"></output>
 								<div id="exposureSlider" class=slider></div>
 							</td>
@@ -96,7 +98,7 @@
 				<div id="simulationStatus">
 				</div>
 			</div>
-			<div id="rightColumn">
+			<div id="rightColumn" class="col-sm-9">
 				<div id="display">
 					<div id="loading">
 						Loading...
