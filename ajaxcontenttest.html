@@ -17,7 +17,7 @@
 		var sectionHead = false,
 			sectionEnd = '</section>',
 			articleHead = false, articleEnd = '</div></article>',
-			content, page;
+			content, page = '';
 		function getContentFromSpreadsheat() {
 			$.getJSON("https://spreadsheets.google.com/feeds/list/1U7imA8NCahaqeIT3jlz-3J-mTuRZyrYs1rUlTZsnO_M/od6/public/values?alt=json-in-script&callback=?", function(data) {
 				$.each(data.feed.entry, function(i, entry) {
