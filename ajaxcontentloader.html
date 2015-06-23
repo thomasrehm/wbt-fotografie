@@ -17,7 +17,7 @@
 		var sectionHead = false,
 			sectionEnd = '</section>',
 			articleHead = false, articleEnd = '</div></article>',
-			content, page;
+			content, page = '';
 		function getContentFromSpreadsheat() {
 			$.getJSON("https://spreadsheets.google.com/feeds/list/1U7imA8NCahaqeIT3jlz-3J-mTuRZyrYs1rUlTZsnO_M/od6/public/values?alt=json-in-script&callback=?", function(data) {
 				$.each(data.feed.entry, function(i, entry) {
@@ -26,14 +26,14 @@
 							page += sectionEnd;
 							page += '<br>';
 						}
-						sectionHead = '<section><h1 id="' + entry.gsx$sectionid.$t + '">' + entry.gsx$sectionheadline.$t + '</h1>';
+						sectionHead = '<section data-linear="1"><h1>' + entry.gsx$sectionheadline.$t + '</h1>';
 						page += sectionHead;
 					}
 					if (entry.gsx$articleheadline.$t) {
 						if (articleHead != false) {
 							page += articleEnd;
 						}
-						articleHead = '<article><div><h2 id="' + entry.gsx$articleid.$t + '">' + entry.gsx$articleheadline.$t + '</h2>';
+						articleHead = '<article><div><h2>' + entry.gsx$articleheadline.$t + '</h2>';
 						page += articleHead;
 					}
 					if (entry.gsx$content.$t) {
@@ -50,6 +50,8 @@
 	<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
 	<link rel="stylesheet" href="res/css/bootstrap-overrides.css" />
 	<link rel="stylesheet" href="res/css/theme.css" />
+	<link rel="stylesheet" href="res/css/bethecamera.css" />
+
 </head>
 
 <body>
@@ -73,7 +75,7 @@
 	<script src="res/js/wbtframework/src/js/framework.js" type="text/javascript" charset="utf-8"></script>
 	<!-- JS-Language -->
 	<!-- <script src="src/lang/DE_de.js" type="text/javascript" charset="utf-8" defer></script> -->
-	<script src="res/js/wbtframework/_demo/src/lang/EN_en.js" type="text/javascript" charset="utf-8" defer></script>
+	<script src="res/js/wbtframework/src/lang/EN_en.js" type="text/javascript" charset="utf-8" defer></script>
 	<!-- JS-Module -->
 	<script src="res/js/wbtframework/src/js/accordion.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/video.js" type="text/javascript" charset="utf-8"></script>
@@ -82,7 +84,7 @@
 	<script src="res/js/wbtframework/src/js/dragDrop.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/gallery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>
-	<script src="res/js/wbtframework/_demo/src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>
+	<script src="res/js/wbtframework/src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>

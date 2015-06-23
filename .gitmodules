@@ -1,6 +1,6 @@
 [submodule "res/js/wbtframework"]
 	path = res/js/wbtframework
-	url = https://scm.thm.de/wbtframework/wbtframework/
+	url = https://git.thm.de/trhm17/wbtframework.git
 [submodule "res/js/bethecamera"]
 	path = res/js/bethecamera
 	url = https://github.com/SteveRidout/bethecamera.git
