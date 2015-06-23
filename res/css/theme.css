@@ -38,6 +38,11 @@ section, aside {
     -moz-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.28);
     box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.28);
 }
+
+.footer {
+    clear: both;
+}
+
 /* Text Styles */
 
 h1, h2 {
@@ -49,4 +54,29 @@ h1 {
 p {
     font-family: 'Lora', serif;
     font-size: 1.2em;
+}
+
+/* Images, Figure */
+
+figure {
+    margin-bottom: 22px;
+    background-color: #F5F5F5;
+    padding: 7px;
+    border: 1px solid #DDD;
+    box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.3);
+}
+
+figcaption {
+    font-style: italic;
+}
+
+figure.pull-left {
+    margin-right: 22px;
+}
+figure.pull-right {
+    margin-left: 22px;
+}
+
+figure.img-320 {
+    width: 320px;
 }
