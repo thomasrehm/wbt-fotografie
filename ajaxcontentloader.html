@@ -9,16 +9,16 @@
 	<link rel="stylesheet" href="res/js/wbtframework/src/css/wbtStyle.css" />
 	<link rel="stylesheet" href="res/js/wbtframework/src/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="res/js/wbtframework/src/css/bootstrap-theme.min.css" />
-
 	<script src="res/js/wbtframework/src/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-
 	<script type="text/javascript">
 		var sectionHead = false,
 			sectionEnd = '</section>',
-			articleHead = false, articleEnd = '</div></article>',
+			articleHead = false,
+			articleEnd = '</div></article>',
 			content, page = '';
-		function getContentFromSpreadsheat() {
+
+		function getContentFromSpreadsheet() {
 			$.getJSON("https://spreadsheets.google.com/feeds/list/1U7imA8NCahaqeIT3jlz-3J-mTuRZyrYs1rUlTZsnO_M/od6/public/values?alt=json-in-script&callback=?", function(data) {
 				$.each(data.feed.entry, function(i, entry) {
 					if (entry.gsx$sectionheadline.$t) {
@@ -37,14 +37,30 @@
 						page += articleHead;
 					}
 					if (entry.gsx$content.$t) {
-						content = '<p>' + entry.gsx$content.$t + '</p>';
+						var contentOfCell = entry.gsx$content.$t,
+							contenttype = entry.gsx$contenttype.$t;
+						if (contenttype == 'positive_ul' || contenttype == 'negative_ul') {
+							if (contenttype == 'positive_ul') {
+								var elements = contentOfCell.split('; ');
+							} else {
+								var elements = contentOfCell.split('; ');
+							}
+							var li = '';
+							elements.forEach(function(entry) {
+								li += '<li>' + entry + '</li>';
+								return li;
+							});
+							content = '<ul class=' + contenttype + '>' + li + '</ul>';
+						} else {
+							content = '<p>' + contentOfCell + '</p>';
+						}
 						page += content;
 					}
 				});
 				$('#content').append(page);
 			});
 		}
-		$(document).ready(getContentFromSpreadsheat());
+		$(document).ready(getContentFromSpreadsheet());
 		$(document).ready(function() {
 			$("#bethecamera-loader").load("bethecamera_ajax.html");
 		});
@@ -53,9 +69,7 @@
 	<!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
 	<link rel="stylesheet" href="res/css/bootstrap-overrides.css" />
 	<link rel="stylesheet" href="res/css/theme.css" />
-	<link rel="stylesheet" href="res/css/bethecamera.css" />
-
-</head>
+	<link rel="stylesheet" href="res/css/bethecamera.css" /> </head>
 
 <body>
 	<div class="container-fluid">
@@ -66,9 +80,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-8 col-md-push-2" id="content">
-
-			</div>
+			<div class="col-md-8 col-md-push-2" id="content"> </div>
 		</div>
 	</div>
 	<!-- JS - loaded after ajax dom manipulations are done -->

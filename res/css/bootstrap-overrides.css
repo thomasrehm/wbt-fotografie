@@ -9,7 +9,6 @@
 	font-family: 'PT Sans', sans-serif;
 	color: #FFF;
 }
-
 .btn-default {
 	background-color: #95A5A6;
 }
@@ -17,20 +16,38 @@
 	background-color: #BDC3C7;
 	color: #FFF;
 }
-
 .btn-primary {
-  	background-color: #2C3E50;
+	background-color: #2C3E50;
 }
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
 	background-color: #34495E;
 }
-
 .btn-link, .btn-link:hover, .btn-link:active, .btn-link:focus {
 	color: #2C3E50;
 	border: 1px solid #2C3E50;
 	text-decoration: none;
 }
-
 .row {
 	background-color: transparent !important;
+}
+
+/* WBT Overrides */
+ul {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 10px;
+}
+ul > li {
+	font-family: 'Lora', serif;
+	font-size: 1.1em;
+	padding-left: 1em;
+	text-indent: -1em;
+}
+.negative_ul > li:before {
+	content: "–";
+	padding-right: 5px;
+}
+.positive_ul > li:before {
+	content: "+";
+	padding-right: 5px;
 }
