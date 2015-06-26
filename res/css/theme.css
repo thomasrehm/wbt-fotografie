@@ -45,7 +45,7 @@ section, aside {
 
 /* Text Styles */
 
-h1, h2 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'PT Sans', sans-serif;
 }
 h1 {
@@ -79,4 +79,25 @@ figure.pull-right {
 
 figure.img-320 {
     width: 320px;
+}
+
+/* WBT Overrides */
+ul {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 10px;
+}
+.negative_ul > li, .positive_ul > li {
+	font-family: 'Lora', serif;
+	font-size: 1.1em;
+	padding-left: 1em;
+	text-indent: -1em;
+}
+.negative_ul > li:before {
+	content: "–";
+	padding-right: 5px;
+}
+.positive_ul > li:before {
+	content: "+";
+	padding-right: 5px;
 }

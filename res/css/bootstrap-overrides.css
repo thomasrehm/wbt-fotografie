@@ -30,24 +30,3 @@
 .row {
 	background-color: transparent !important;
 }
-
-/* WBT Overrides */
-ul {
-	list-style: none;
-	margin-left: 0;
-	padding-left: 10px;
-}
-ul > li {
-	font-family: 'Lora', serif;
-	font-size: 1.1em;
-	padding-left: 1em;
-	text-indent: -1em;
-}
-.negative_ul > li:before {
-	content: "–";
-	padding-right: 5px;
-}
-.positive_ul > li:before {
-	content: "+";
-	padding-right: 5px;
-}

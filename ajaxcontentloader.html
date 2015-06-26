@@ -58,6 +58,9 @@
 						if (contenttype === 'question') {
 							content = '</div>' + contentOfCell;
 						}
+						if (contenttype === 'subheadline') {
+							content = '<h3>' + contentOfCell + '</h3>';
+						}
 						if (contenttype === '') {
 							content = '<p>' + contentOfCell + '</p>';
 						}
