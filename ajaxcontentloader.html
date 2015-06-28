@@ -74,7 +74,15 @@
 			getContentFromSpreadsheet();
 		});
 		$(window).load(function() {
-			$("#bethecamera-loader").load("bethecamera_ajax.html");
+	        var simulator_loaded = false;
+	        $('#bethecameraModal').on('shown.bs.modal', function () {
+	            if (simulator_loaded == false) {
+	                $("#bethecamera-loader").load("bethecamera_ajax.html");
+	                simulator_loaded = true;
+	                $("#btcModalLoading").hide();               
+	            }
+
+	        });
 		});
 	</script>
 	<!-- custom -->
@@ -95,6 +103,26 @@
 			<div class="col-md-8 col-md-push-2" id="content"> </div>
 		</div>
 	</div>
+
+<!-- Modal for bethecamera -->
+    <div class="modal fade" id="bethecameraModal" tabindex="-1" role="dialog" aria-labelledby="btcModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg">
+       <div class="modal-content">
+         <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Schließen</span></button>
+           <h4 class="modal-title" id="btcModalLabel">Kamera-Simulator</h4>
+         </div>
+         <div class="modal-body">
+            <span id="btcModalLoading">Loading...</span>
+           <div id="bethecamera-loader"></div>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+         </div>
+       </div>
+     </div>
+    </div> 
+
 	<!-- JS - loaded after ajax dom manipulations are done -->
 	<script src="res/js/wbtframework/src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/localStorage.js" type="text/javascript" charset="utf-8"></script>
