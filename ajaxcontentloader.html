@@ -68,6 +68,12 @@
 					}
 				});
 				$('#content').append(page);
+			})
+			.fail(function(jqXHR, textStatus, errorThrown) { 
+				$("#content").append("<section><h1>WBT Fotografie</h1><article><h2>Keine Internetverbindung</h2><div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span></span> Um das WBT nutzen zu können, müssen Sie mit dem Internet verbunden sein.</div></article></section>");
+				$(".mainNavigation").hide();
+				// Additional alert - uncomment if needed
+				//alert('Um das WBT nutzen zu können, müssen Sie mit dem Internet verbunden sein.'); 
 			});
 		}
 		$(document).ready(function() {
