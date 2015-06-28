@@ -204,6 +204,7 @@
            <h4 class="modal-title" id="btcModalLabel">Kamera-Simulator</h4>
          </div>
          <div class="modal-body">
+            <span id="btcModalLoading">Loading...</span>
            <div id="bethecamera-loader"></div>
          </div>
          <div class="modal-footer">
@@ -214,7 +215,16 @@
     </div> 
     <script type="text/javascript">
     $(document).ready(function() {
-        $("#bethecamera-loader").load("bethecamera_ajax.html");
+        var simulator_loaded = false;
+        $('#bethecameraModal').on('shown.bs.modal', function () {
+            if (simulator_loaded == false) {
+                $("#bethecamera-loader").load("bethecamera_ajax.html");
+                simulator_loaded = true;
+                $("#btcModalLoading").hide();               
+            }
+
+        })
+        
     });
 
 
