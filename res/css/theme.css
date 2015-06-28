@@ -51,7 +51,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     text-transform: uppercase;
 }
-p {
+p, li {
     font-family: 'Lora', serif;
     font-size: 1.2em;
 }
@@ -93,11 +93,29 @@ ul {
 	padding-left: 1em;
 	text-indent: -1em;
 }
-.negative_ul > li:before {
-	content: "–";
-	padding-right: 5px;
+/* Positive/negative uls */
+
+ul.positive_ul > li:before, ul.negative_ul > li:before {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-right: 5px;
+    font-size: 90%;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-.positive_ul > li:before {
-	content: "+";
-	padding-right: 5px;
+
+ul.positive_ul > li:before {
+    color: green;
+    content: "\e013";
+}
+
+ul.negative_ul > li:before {
+    color: red;
+    content: "\e014";
 }
