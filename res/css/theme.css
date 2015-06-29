@@ -65,7 +65,7 @@
 }
 
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-    background: rgba(255, 255, 255, 0.2); 
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .mainNavigation .dropdown-menu>li.disabled>a {
@@ -182,6 +182,6 @@ ul.negative_ul > li:before {
 
 @media (min-width: 992px) {
     .mainNavigation .navbar-nav li {
-        width: 380px;
+        /* width: 300px; */
     }
 }
