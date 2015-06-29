@@ -9,93 +9,15 @@
 	<link rel="stylesheet" href="res/js/wbtframework/src/css/wbtStyle.css" />
 	<link rel="stylesheet" href="res/js/wbtframework/src/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="res/js/wbtframework/src/css/bootstrap-theme.min.css" />
+	<!-- Necessary Scripts to load at the beginning -->
 	<script src="res/js/wbtframework/src/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-	<!-- LazyLoading of images -->
-	<script type="text/javascript" src="res/js/unveil-master/jquery.unveil.js" charset="utf-8"></script>
-
+	<!-- set of functions (getContentFromSpreadsheet, setCanvasSize)-->
+	<script type="text/javascript" src="res/js/script.js" charset="utf-8"></script>
 	<script type="text/javascript">
-		var sectionHead = false,
-			sectionEnd = '</section>',
-			articleHead = false,
-			articleEnd = '</div></article>',
-			content, page = '';
-
-		function getContentFromSpreadsheet() {
-			$.getJSON("https://spreadsheets.google.com/feeds/list/1U7imA8NCahaqeIT3jlz-3J-mTuRZyrYs1rUlTZsnO_M/od6/public/values?alt=json-in-script&callback=?", function(data) {
-				$.each(data.feed.entry, function(i, entry) {
-					if (entry.gsx$sectionheadline.$t) {
-						if (sectionHead != false) {
-							page += sectionEnd;
-							page += '<br>';
-						}
-						sectionHead = '<section data-linear="1"><h1>' + entry.gsx$sectionheadline.$t + '</h1>';
-						page += sectionHead;
-					}
-					if (entry.gsx$articleheadline.$t) {
-						if (articleHead != false) {
-							page += articleEnd;
-						}
-						articleHead = '<article><div><h2>' + entry.gsx$articleheadline.$t + '</h2>';
-						page += articleHead;
-					}
-					if (entry.gsx$content.$t) {
-						var contentOfCell = entry.gsx$content.$t,
-							contenttype = entry.gsx$contenttype.$t;
-						if (contenttype === 'positive_ul' || contenttype === 'negative_ul') {
-							if (contenttype === 'positive_ul') {
-								var elements = contentOfCell.split('; ');
-							} else {
-								var elements = contentOfCell.split('; ');
-							}
-							var li = '';
-							elements.forEach(function(entry) {
-								li += '<li>' + entry + '</li>';
-								return li;
-							});
-							content = '<ul class=' + contenttype + '>' + li + '</ul>';
-						}
-						if (contenttype === 'basic_image') {
-							content = '<img src="res/images/loader.gif" data-src="' + contentOfCell + '" alt="' + contentOfCell.substring(0, contentOfCell.length - 4) + '" class="img-responsive" />';
-						}
-						if (contenttype === 'question') {
-							content = '</div>' + contentOfCell;
-						}
-						if (contenttype === 'subheadline') {
-							content = '<h3>' + contentOfCell + '</h3>';
-						}
-						if (contenttype === '') {
-							content = '<p>' + contentOfCell + '</p>';
-						}
-						page += content;
-					}
-				});
-				$('#content').append(page);
-			})
-			.fail(function(jqXHR, textStatus, errorThrown) {
-				$("#content").append("<section><h1>WBT Fotografie</h1><article><h2>Keine Internetverbindung</h2><div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span></span> Um das WBT nutzen zu können, müssen Sie mit dem Internet verbunden sein.</div></article></section>");
-				$(".mainNavigation").hide();
-				// Additional alert - uncomment if needed
-				//alert('Um das WBT nutzen zu können, müssen Sie mit dem Internet verbunden sein.');
-			});
-		}
 		$(document).ready(function() {
-			getContentFromSpreadsheet();
-
-		});
-		$(window).load(function() {
-	        var simulator_loaded = false;
-	        $('#bethecameraModal').on('shown.bs.modal', function () {
-	            if (simulator_loaded == false) {
-	                $("#bethecamera-loader").load("bethecamera_ajax.html");
-	                simulator_loaded = true;
-	                $("#btcModalLoading").hide();
-	            }
-
-	        });
-			$(function() {
-        		$("img").unveil();
-    		});
+			// load content from google spreadsheet and append to DOM
+			script.getContentFromSpreadsheet();
 		});
 	</script>
 	<!-- custom -->
@@ -116,27 +38,55 @@
 			<div class="col-md-8 col-md-push-2" id="content"> </div>
 		</div>
 	</div>
-
-<!-- Modal for bethecamera -->
-    <div class="modal fade" id="bethecameraModal" tabindex="-1" role="dialog" aria-labelledby="btcModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-lg">
-       <div class="modal-content">
-         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Schließen</span></button>
-           <h4 class="modal-title" id="btcModalLabel">Kamera-Simulator</h4>
-         </div>
-         <div class="modal-body">
-            <span id="btcModalLoading">Loading...</span>
-           <div id="bethecamera-loader"></div>
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
-         </div>
-       </div>
-     </div>
-    </div>
-
+	<!-- Modal for bethecamera -->
+	<div class="modal fade" id="bethecameraModal" tabindex="-1" role="dialog" aria-labelledby="btcModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Schließen</span>
+					</button>
+					<h4 class="modal-title" id="btcModalLabel">Kamera-Simulator</h4>
+				</div>
+				<div class="modal-body">
+					<span id="btcModalLoading">Loading...</span>
+					<div id="bethecamera-loader"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- JS - loaded after ajax dom manipulations are done -->
+	<!-- LazyLoading of images -->
+	<script type="text/javascript" src="res/js/unveil/jquery.unveil.js" charset="utf-8"></script>
+	<style media="screen">
+		/* CSS to realize fade in of images with the unveil-plugin */
+
+		img {
+			opacity: 0;
+			transition: opacity .3s ease-in;
+		}
+	</style>
+	<script type="text/javascript">
+		$(window).load(function() {
+			var simulator_loaded = false;
+			$('#bethecameraModal').on('shown.bs.modal', function() {
+				if (simulator_loaded == false) {
+					$("#bethecamera-loader").load("bethecamera_ajax.html");
+					simulator_loaded = true;
+					$("#btcModalLoading").hide();
+				}
+			});
+			$("img").unveil(10, function() {
+				$(this).load(function() {
+					this.style.opacity = 1;
+				});
+			});
+		});
+	</script>
 	<script src="res/js/wbtframework/src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/localStorage.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/modal.js" type="text/javascript" charset="utf-8"></script>

@@ -28,6 +28,7 @@
     <script src="res/js/wbtframework/src/js/gallery.js" type="text/javascript" charset="utf-8"></script>
     <script src="res/js/wbtframework/src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>
     <script src="res/js/wbtframework/_demo/src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>
+    <script src="res/js/script.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- custom -->
     <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
@@ -61,7 +62,7 @@
                         <!-- Button trigger modal -->
                         <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#bethecameraModal">
                           Kamerasimulator starten
-                        </button>         
+                        </button>
                         </div>
 
                     </article>
@@ -212,7 +213,7 @@
          </div>
        </div>
      </div>
-    </div> 
+    </div>
     <script type="text/javascript">
     $(document).ready(function() {
         var simulator_loaded = false;
@@ -220,11 +221,11 @@
             if (simulator_loaded == false) {
                 $("#bethecamera-loader").load("bethecamera_ajax.html");
                 simulator_loaded = true;
-                $("#btcModalLoading").hide();               
+                $("#btcModalLoading").hide();
             }
 
         });
-        
+
     });
 
 

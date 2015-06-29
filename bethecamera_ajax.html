@@ -2,21 +2,25 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=IE9">
 <html>
 <head>
-	
 	<script src="res/js/bethecamera/external/require-jquery.js"></script>
 	<script src="res/js/bethecamera/external/jquery-ui/js/jquery-ui-1.9.0.custom.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="res/js/bethecamera/external/jquery-ui/css/ui-darkness/jquery-ui-1.9.0.custom.min.css" />
-	
-
 	<script>
 		require.config({
 			baseUrl: "res/js/bethecamera/",
 			urlArgs: "bust=$GIT_COMMIT",
 		});
 		require(['src/main'], function () {});
-
 	</script>
-
+	<script src="res/js/script.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+        $(document).ready(function() {
+            script.setCanvasSize();
+        });
+		$(window).resize(function() {
+			script.setCanvasSize();
+		});
+    </script>
 <!-- Chrome frame install -->
 <script type="text/javascript"
    src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">
@@ -24,7 +28,7 @@
 </head>
 <body id="simulator">
 	<div id="topContainer">
-		<h2>Camera: <select id="cameraSelector"></select> &nbsp; Scene: <select id="sceneSelector"></select></h2>
+		<p>Kamera: <select id="cameraSelector"></select> &nbsp; Szene: <select id="sceneSelector"></select></p>
 	</div>
 	<div id="simulationContainer">
 		<div id="cameraContainer" class="row">
@@ -103,7 +107,7 @@
 					<div id="loading">
 						Loading...
 					</div>
-					<canvas id="largeCanvas" width="540" height="360">
+					<canvas id="largeCanvas" width="300" height="200">
 						Your browser does not support Canvas.
 						<br />
 						Please install google chrome to view this page.
