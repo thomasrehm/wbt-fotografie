@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="res/js/wbtframework/src/css/bootstrap-theme.min.css" />
 	<script src="res/js/wbtframework/src/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- LazyLoading of images -->
+	<script type="text/javascript" src="res/js/unveil-master/jquery.unveil.js" charset="utf-8"></script>
+
 	<script type="text/javascript">
 		var sectionHead = false,
 			sectionEnd = '</section>',
@@ -53,7 +56,7 @@
 							content = '<ul class=' + contenttype + '>' + li + '</ul>';
 						}
 						if (contenttype === 'basic_image') {
-							content = '<img src="' + contentOfCell + '" alt="' + contentOfCell.substring(0, contentOfCell.length - 4) + '" class="img-responsive" />';
+							content = '<img src="res/images/loader.gif" data-src="' + contentOfCell + '" alt="' + contentOfCell.substring(0, contentOfCell.length - 4) + '" class="img-responsive" />';
 						}
 						if (contenttype === 'question') {
 							content = '</div>' + contentOfCell;
@@ -69,15 +72,16 @@
 				});
 				$('#content').append(page);
 			})
-			.fail(function(jqXHR, textStatus, errorThrown) { 
+			.fail(function(jqXHR, textStatus, errorThrown) {
 				$("#content").append("<section><h1>WBT Fotografie</h1><article><h2>Keine Internetverbindung</h2><div class='alert alert-danger' role='alert'><span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span></span> Um das WBT nutzen zu können, müssen Sie mit dem Internet verbunden sein.</div></article></section>");
 				$(".mainNavigation").hide();
 				// Additional alert - uncomment if needed
-				//alert('Um das WBT nutzen zu können, müssen Sie mit dem Internet verbunden sein.'); 
+				//alert('Um das WBT nutzen zu können, müssen Sie mit dem Internet verbunden sein.');
 			});
 		}
 		$(document).ready(function() {
 			getContentFromSpreadsheet();
+
 		});
 		$(window).load(function() {
 	        var simulator_loaded = false;
@@ -85,10 +89,13 @@
 	            if (simulator_loaded == false) {
 	                $("#bethecamera-loader").load("bethecamera_ajax.html");
 	                simulator_loaded = true;
-	                $("#btcModalLoading").hide();               
+	                $("#btcModalLoading").hide();
 	            }
 
 	        });
+			$(function() {
+        		$("img").unveil();
+    		});
 		});
 	</script>
 	<!-- custom -->
@@ -127,7 +134,7 @@
          </div>
        </div>
      </div>
-    </div> 
+    </div>
 
 	<!-- JS - loaded after ajax dom manipulations are done -->
 	<script src="res/js/wbtframework/src/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
