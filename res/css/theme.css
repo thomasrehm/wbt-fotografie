@@ -29,9 +29,6 @@
     font-family: 'PT Sans', sans-serif;
 }
 
-.navbar-default .navbar-nav > li:nth-child(2) {
-    background: rgba(255, 255, 255, 0.05);
-}
 
 .navbar-default .navbar-nav > li.open {
     background: transparent !important;
