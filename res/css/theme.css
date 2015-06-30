@@ -52,13 +52,15 @@
 
 .mainNavigation .dropdown-menu {
     background: rgba(50,50,50,0.7);
+    min-width: 100%;
 }
 
 
 .mainNavigation .dropdown-menu>li>a {
-    color: #FFF;
+    color: #FFF !important;
     padding: 8px;
     font-size: 123%;
+    white-space: normal;
 }
 
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
@@ -66,12 +68,27 @@
 }
 
 .mainNavigation .dropdown-menu>li.disabled>a {
-    color: #000;
+    color: #000 !important;
 }
 
 .mainNavigation .dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2) !important;
 }
+
+@media (min-width: 900px) {
+    .mainNavigation .navbar-nav {
+        width: 100%;
+    }
+    .mainNavigation .navbar-nav > li {
+        width: 33%;
+        max-width: 300px;
+    }
+
+    .mainNavigation .dropdown-menu li {
+        max-width: 300px;
+    }
+}
+
 
 
 
@@ -175,10 +192,4 @@ ul.positive_ul > li:before {
 ul.negative_ul > li:before {
     color: red;
     content: "\e014";
-}
-
-@media (min-width: 992px) {
-    .mainNavigation .navbar-nav li {
-        /* width: 300px; */
-    }
 }
