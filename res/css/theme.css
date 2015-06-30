@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lora);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
 /* Sections */
 
 #header {
@@ -95,6 +96,9 @@
 /* Container Styles */
 body {
 	background-color: transparent !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
 }
 
 html {
@@ -157,9 +161,9 @@ figure.img-320 {
 
 /* WBT Overrides */
 ul {
-	list-style: none;
-	margin-left: 0;
-	padding-left: 10px;
+    /* list-style: none; */
+    margin-left: 0;
+    padding-left: 10px;
 }
 .negative_ul > li, .positive_ul > li {
 	font-family: 'Lora', serif;
@@ -192,4 +196,9 @@ ul.positive_ul > li:before {
 ul.negative_ul > li:before {
     color: red;
     content: "\e014";
+}
+
+ul.simple_list > li{
+    list-style-type: disc;
+    list-style: disc;
 }
