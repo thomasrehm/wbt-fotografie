@@ -72,7 +72,7 @@ var script = (function (win) {
 						}
 						if (contenttype === 'drive_image') {
 							content = '<img src="res/images/loader.gif" data-src="'
-							imagesFolderURL + contentOfCell + '" alt="" class="img-responsive" />';
+							+ imagesFolderURL + contentOfCell + '" alt="" class="img-responsive" />';
 						}
 						if (contenttype === 'question') {
 							content = '</div>' + contentOfCell;
