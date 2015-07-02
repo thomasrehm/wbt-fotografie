@@ -202,3 +202,38 @@ ul.simple_list > li{
     list-style-type: disc;
     list-style: disc;
 }
+
+/* Questions */
+article .container-fluid {
+    font-family: 'Lora', serif;
+    font-size: 1.2em;
+    padding: 0px;
+}
+
+article .container-fluid .panel, article .container-fluid .panel .panel-heading {
+    border-radius: 0px;
+}
+
+article .container-fluid .panel .panel-heading {
+  background: none;
+  background-color: #34495E;
+  /* background: none; */
+  color: #FFF;
+  font-family: 'PT Sans', sans-serif;
+}
+
+article .container-fluid .panel .panel-heading:before {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-right: 5px;
+    font-size: 90%;
+    content: "\e085";
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;    
+}
