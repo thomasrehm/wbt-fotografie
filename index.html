@@ -104,6 +104,16 @@
 	<script src="res/js/wbtframework/src/js/gallery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+		// Scroll to top when next-button is pressed
+		$(window).load(function() {
+			$(".walkingButton").click(function() {
+				console.log("scrolled");
+				window.scrollTo(0, 0);
+			});
+		});
+	</script>
 </body>
 
 </html>
