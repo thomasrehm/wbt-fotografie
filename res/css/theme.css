@@ -12,7 +12,7 @@
 /* Footer */
 
 .footer {
-    margin: -22px;
+    margin: -22px -33px;
     padding: 0px;
 }
 .footer a.walkingButton {
@@ -111,7 +111,7 @@ html {
 }
 section, aside {
     background: #FFF;
-    padding: 22px;
+    padding: 22px 33px;
     -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.28);
     -moz-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.28);
     box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.28);
@@ -128,10 +128,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 h1 {
     text-transform: uppercase;
+    margin-bottom: 22px;
 }
 p, #content li {
     font-family: 'Lora', serif;
     font-size: 1.2em;
+}
+
+article h3 {
+    margin-top: 33px;
 }
 
 /* Images, Figure */
@@ -157,6 +162,14 @@ figure.pull-right {
 
 figure.img-320 {
     width: 320px;
+}
+
+img.img-responsive {
+    margin: 30px 0px;
+}
+
+figure img.img-responsive {
+    margin: 0px;
 }
 
 /* WBT Overrides */
