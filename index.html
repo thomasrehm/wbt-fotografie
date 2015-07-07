@@ -102,12 +102,13 @@
 	<script src="res/js/wbtframework/src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>
 
 	<script type="text/javascript">
-		// Scroll to top when next-button is pressed
 		$(window).load(function() {
+			// Scroll to top when next-button is pressed
 			$(".walkingButton").click(function() {
 				console.log("scrolled");
 				window.scrollTo(0, 0);
 			});
+			// Collapse Navbar on small screens after link is clicked
 			$('.nav li li a').click(function(){
 			    $('.navbar-collapse.in').collapse('hide');
 				setTimeout(function () {
