@@ -162,8 +162,8 @@ figure.img-320 {
 /* WBT Overrides */
 ul {
     /* list-style: none; */
-    margin-left: 0;
-    padding-left: 10px;
+    margin-left: 1em;
+    padding-left: 1em;
 }
 .negative_ul > li, .positive_ul > li {
 	font-family: 'Lora', serif;
@@ -235,5 +235,13 @@ article .container-fluid .panel .panel-heading:before {
     content: "\e085";
 
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;    
+    -moz-osx-font-smoothing: grayscale;
+}
+.checkbox label {
+    width: 93%;
+}
+/* CSS to realize fade in of images with the unveil-plugin */
+img {
+    opacity: 0;
+    transition: opacity .3s ease-in;
 }
