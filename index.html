@@ -108,6 +108,13 @@
 				console.log("scrolled");
 				window.scrollTo(0, 0);
 			});
+			$('.nav li li a').click(function(){
+			    $('.navbar-collapse.in').collapse('hide');
+				setTimeout(function () {
+					window.scrollTo(0, 0);
+				}, 0);
+
+			});
 		});
 	</script>
 </body>
