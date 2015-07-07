@@ -80,6 +80,9 @@ var script = (function (win) {
 						if (contenttype === 'subheadline') {
 							content = '<h3>' + contentOfCell + '</h3>';
 						}
+						if (contenttype === 'code') {
+							content = contentOfCell;
+						}
 						if (contenttype === '') {
 							content = '<p>' + contentOfCell + '</p>';
 						}
