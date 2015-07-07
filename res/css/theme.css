@@ -168,8 +168,8 @@ ul {
 .negative_ul > li, .positive_ul > li {
 	font-family: 'Lora', serif;
 	font-size: 1.1em;
-	padding-left: 1em;
-	text-indent: -1em;
+	/*padding-left: 1em;*/
+	/*text-indent: -1em;*/
 }
 /* Positive/negative uls */
 
