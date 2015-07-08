@@ -9,6 +9,11 @@
     text-align: right;
     color: #FFF;
 }
+.iconbutton {
+    margin-left: 10px;
+    display: inline-block;
+    margin-top: -5px;
+}
 /* Footer */
 
 .footer {
@@ -36,8 +41,8 @@
 }
 
 .navbar-default .navbar-nav > li .caret {
-    float: right;
-    margin-top: 11px;
+    /*float: right;
+    margin-top: 6px;*/
 }
 
 .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active, .navbar-default .navbar-nav > li > a:focus {
@@ -81,7 +86,7 @@
         width: 100%;
     }
     .mainNavigation .navbar-nav > li {
-        width: 33%;
+        width: 25%;
         max-width: 300px;
     }
 
@@ -99,6 +104,7 @@ body {
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
+    height: 100%;
 }
 
 html {

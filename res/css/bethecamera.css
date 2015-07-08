@@ -1,11 +1,9 @@
 #bethecamera-loader h2 {
 	font-size: 16px;
 }
-
 #scene {
-	display:none;
+	display: none;
 }
-
 #bethecamera-loader .controlPanel output {
 	text-align: right;
 	margin-top: -33px;
@@ -13,7 +11,14 @@
 	color: orange;
 	font-weight: bold;
 }
-
 #bethecamera-loader #topContainer select {
 	border: 1px solid #DDD;
+}
+input[type=radio], input[type=checkbox] {
+	margin-top: -4px;
+	line-height: normal;
+	margin-right: 4px;
+}
+.slider {
+	margin-bottom: 4px;
 }

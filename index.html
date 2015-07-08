@@ -32,11 +32,16 @@
 		<nav class="mainNavigation"></nav>
 		<div class="row">
 			<div id="header" class="col-md-10">
-				<h1>WBT Fotografie</h1>
+				<h1>WBT Fotografie
+					<button class="pull-right btn btn-info btn-lg iconbutton" data-toggle="modal" data-target="#bethecameraModal" title="Kamerasimulator starten">
+						<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+					</button>
+				</h1>
 			</div>
 		</div>
+		<br>
 		<div class="row">
-			<div class="col-md-8 col-md-push-2" id="content"> </div>
+			<div class="col-md-8 col-md-push-2" id="content"></div>
 		</div>
 	</div>
 	<!-- Modal for bethecamera -->
@@ -100,7 +105,6 @@
 	 -->
 	<script src="res/js/wbtframework/src/js/multiple-choice.js" type="text/javascript" charset="utf-8"></script>
 	<script src="res/js/wbtframework/src/js/single-choice.js" type="text/javascript" charset="utf-8"></script>
-
 	<script type="text/javascript">
 		$(window).load(function() {
 			// Scroll to top when next-button is pressed
@@ -109,13 +113,14 @@
 				window.scrollTo(0, 0);
 			});
 			// Collapse Navbar on small screens after link is clicked
-			$('.nav li li a').click(function(){
-			    $('.navbar-collapse.in').collapse('hide');
-				setTimeout(function () {
-					window.scrollTo(0, 0);
-				}, 0);
-
-			});
+			// $('.nav li li a').click(function() {
+			// 	if (!$('.navbar-toggle').is(':hidden')) {
+			// 		$('.navbar-collapse.in').collapse('hide');
+			// 		setTimeout(function() {
+			// 			window.scrollTo(0, 0);
+			// 		}, 1);
+			// 	}
+			// });
 		});
 	</script>
 </body>

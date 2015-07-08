@@ -43,7 +43,6 @@ var script = (function (win) {
 					if (entry.gsx$sectionheadline.$t) {
 						if (sectionHead != false) {
 							page += sectionEnd;
-							page += '<br>';
 						}
 						sectionHead = '<section data-linear="1"><h1>' + entry.gsx$sectionheadline.$t + '</h1>';
 						page += sectionHead;
