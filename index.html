@@ -104,6 +104,8 @@
 				console.log("scrolled");
 				window.scrollTo(0, 0);
 			});
+			$(".nav li a:contains('Ergebnis')").parent().hide();
+			$(".nav li a:contains('Probiere es aus!')").parent().hide();
 			$("a[href|='#finish']" ).css('display', 'none');
 		});
 	</script>
